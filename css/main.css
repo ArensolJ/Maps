@@ -1,0 +1,18 @@
+html, body {
+    max-height: 85vh;
+    min-height: -webkit-fill-available;
+    overflow: hidden;
+}
+.search{
+    cursor: pointer;
+    border: none;
+}
+.location{
+    background-image: url(/resources/images/location.png);
+    background-size: cover;
+    background-repeat: repeat;
+    background-color: transparent;
+}
+.hidelist{
+    visibility: hidden;
+}

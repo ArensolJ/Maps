@@ -11,13 +11,15 @@ function getLocation() {
 
                 // Create a map container dynamically
                 var mapDiv = document.getElementById("map");
-                if(!mapDiv){
-                    mapDiv = document.createElement('div');
-                    mapDiv.id = "map"
-                    mapDiv.style.height = '100vh'; // Make the map fill the entire viewport
-                    mapDiv.style.width = '100%';
-                    document.body.appendChild(mapDiv);
-                }
+                mapDiv.style.height = '85vh';
+                mapDiv.style.width = '100%';
+                // if(!mapDiv){
+                //     mapDiv = document.createElement('div');
+                //     mapDiv.id = "map"
+                //     mapDiv.style.height = '100vh'; // Make the map fill the entire viewport
+                //     mapDiv.style.width = '100%';
+                //     document.body.appendChild(mapDiv);
+                // }
 
                 // Create a Google Map centered on the user's location
                 const map = new google.maps.Map(mapDiv, {
@@ -74,4 +76,4 @@ function initMap() {
 }
 
 // Call initMap when the page is ready
-initMap();
+//initMap();
