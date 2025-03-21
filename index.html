@@ -19,7 +19,7 @@
           <div class="container p-0 pt-2 border border-bottom-1 border-top-0">
             <div class="container m-2 ms-1">            
               <div class="input-group ml-3 mr-5">
-              <input type="text" class="form-control input-group-text text-start border-0" placeholder="Address, Zip" aria-label="Search">
+              <input type="text" id="autocomplete" class="form-control input-group-text text-start border-0" placeholder="Address, Zip" aria-label="Search">
               <span class="input-group-text border-0 search">
                 <svg width="20" height="20" viewBox="0 0 20 20"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg>
               </span>
@@ -44,7 +44,7 @@
           </div>
             
           </div>
-            <div class="list-group list-group-flush border-bottom scrollarea mt-3">
+            <div class="list-group list-group-flush border-bottom scrollarea mt-3 hidelist">
               <a href="#" class="list-group-item list-group-item-action active py-3 lh-tight" aria-current="true">
                 <div class="d-flex w-100 align-items-center justify-content-between">
                   <strong class="mb-1">List group item heading</strong>
@@ -138,14 +138,14 @@
         <div id="map" class="position-absolute"></div>
     </div>
     </main>
-    <footer class="footer mt-auto py-3 bg-light">
+    <!-- <footer class="footer mt-5 py-3 bg-light position-relative">
       <div class="container">
         <span class="text-muted">Place sticky footer content here.</span>
       </div>
-    </footer>
+    </footer> -->
     
     <script src="./js/init.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUCx_oojM_3YxJwfW60bF1vunOJL5p6ds&callback=initMap"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHK9fUrsVLvcC1nQOhaHeb1OWyubEh6lk&libraries=places&callback=initMap"></script>
     
 </body>
 </html>
