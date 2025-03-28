@@ -15,22 +15,24 @@ function initMap() {
        
        
         // Store branches
-        let stores = getStoreLocation();
+        // let stores = getStoreLocation();
 
-        let listContainer = document.getElementById("storeList");
-        listContainer.innerHTML = ""
-        stores.forEach(store => {
-            addPinMarker({
-                position: {lat: store.coordinates.latitude, lng: store.coordinates.longitude},
-                map: map,
-                title: store.name,
-                address: store.address
-            });
+        // let listContainer = document.getElementById("storeList");
+        // listContainer.innerHTML = ""
+        // stores.forEach(store => {
+        //     // addPinMarker({
+        //     //     position: {lat: store.coordinates.latitude, lng: store.coordinates.longitude},
+        //     //     map: map,
+        //     //     title: store.name,
+        //     //     address: store.address
+        //     // });
 
-            addLocationItems(listContainer, store)
+        //     addLocationItems(listContainer, store)
 
 
-        });
+        // });
+
+        searchStoreLocation(defaultLocation)
        
         }, function() {
             // Handle error if geolocation fails
@@ -145,6 +147,41 @@ function addLocationItems(listContainer, store){
   `;
 
   listContainer.appendChild(listItem);
+}
+
+function searchStoreLocation(location){
+  let service = new google.maps.places.PlacesService(map);
+
+            // Search for Mang Inasal nearby
+            service.nearbySearch(
+                {
+                    location: location,
+                    radius: 5000, // 5 km radius
+                    keyword: "Mang Inasal",
+                },
+                function (results, status) {
+                    if (status === google.maps.places.PlacesServiceStatus.OK) {
+                        results.forEach((place) => {
+                            let marker = new google.maps.Marker({
+                                position: place.geometry.location,
+                                map: map,
+                                title: place.name,
+                            });
+
+                            // Display store name
+                            let infoWindow = new google.maps.InfoWindow({
+                                content: `<strong>${place.name}</strong><br>${place.vicinity}`,
+                            });
+
+                            marker.addListener("click", () => {
+                                infoWindow.open(map, marker);
+                            });
+                        });
+                    } else {
+                        console.error("Places request failed due to: " + status);
+                    }
+                }
+            );
 }
 
 // Call initMap when the page is ready
